@@ -10,8 +10,10 @@
         <img src="" alt="">
         <div >
             <?php
-            $usuario = $_POST['Login'];
-            $senha = $_POST['senha'];
+            session_start();
+            $usuario = $_SESSION['usuario'] = $_POST['Login'];
+            $senha= $_SESSION ['senha'] = $_POST['senha'];
+            echo $usuario.$senha;
             if ($usuario == "etec" && $senha == "etec"){
                 echo '<form action="texto.php" method="get">
                 <label for="text">Titulo:</label><br>
@@ -29,14 +31,10 @@
             else if ($senha <> "etec"){
                 echo "senha incorreta";
             }
+            
             ?>
             
-        </div>
-        <!-- <form action="texto.php" method="get">
-            <input type="text" name="dfdf" id="">
-            <input type="submit" value="dsfs">
-        </form> -->
-        
+        </div>        
     </body>
     </html>
     
